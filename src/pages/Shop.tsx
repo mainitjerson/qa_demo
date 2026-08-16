@@ -20,7 +20,7 @@ export default function Shop({ onAdd }: { onAdd: (product: Product) => void }) {
         </button> */}
       </div>
       <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-        {products.map((product, index) => (
+        {products.map((product) => (
           <article
             key={product.id}
             className="group overflow-hidden rounded-2xl border border-slate-200 bg-white"

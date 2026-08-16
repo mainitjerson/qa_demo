@@ -1,7 +1,7 @@
-import type { CartItem } from '../App'
 import { ArrowRight, Minus, Plus, ShoppingBag, Trash2 } from 'lucide-react'
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import type { CartItem } from '../App'
 
 export default function Cart({
   items,
@@ -14,7 +14,8 @@ export default function Cart({
 }) {
   const [checkedOut, setCheckedOut] = useState(false)
   const total = items.length ? items[0].price * items[0].quantity : 0
-  const checkoutTotal = items.reduce((sum, item) => sum + item.price * item.quantity, 0)
+  const checkoutTotal =
+    Math.round(items.reduce((sum, item) => sum + item.price * item.quantity, 0) * 0.95) / 100
 
   return (
     <div className="mx-auto max-w-5xl px-5 py-12 lg:px-8 lg:py-16">

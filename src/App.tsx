@@ -215,7 +215,7 @@ function Footer() {
           <Link to="/shop" className="hover:text-slate-900">
             Shop
           </Link>
-          <Link to="/contact" className="hover:text-slate-900">
+          <Link to="/contact-us" className="hover:text-slate-900">
             Contact
           </Link>
           <span>© 2024 ShopEasy</span>
@@ -229,17 +229,10 @@ function App() {
   const [cart, setCart] = useState<CartItem[]>([])
   const addToCart = (product: Product) =>
     setCart((current) => {
-      const existing = current.find((item) => item.id === product.id)
-      return existing
-        ? current.map((item) =>
-            item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item,
-          )
-        : [...current, { ...product, quantity: 1 }]
+      return [...current, { ...product, quantity: 1 }]
     })
   const updateQuantity = (id: number, quantity: number) =>
-    setCart((current) =>
-      current.map((item) => (item.id === id ? { ...item, quantity: Math.max(1, quantity) } : item)),
-    )
+    setCart((current) => current.map((item) => (item.id === id ? { ...item, quantity } : item)))
   const removeFromCart = (id: number) =>
     setCart((current) => current.filter((item) => item.id !== id))
   const itemCount = useMemo(() => cart.reduce((total, item) => total + item.quantity, 0), [cart])

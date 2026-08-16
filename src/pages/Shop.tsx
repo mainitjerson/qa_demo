@@ -34,21 +34,12 @@ export default function Shop({ onAdd }: { onAdd: (product: Product) => void }) {
                 </div>
                 <p className="font-extrabold text-slate-900">${product.price}</p>
               </div>
-              {index === 5 ? (
-                <button
-                  disabled
-                  className="mt-5 w-full cursor-not-allowed rounded-xl bg-slate-200 py-3 text-xs font-bold text-slate-400"
-                >
-                  Add to cart
-                </button>
-              ) : (
-                <button
-                  onClick={() => onAdd(product)}
-                  className="mt-5 w-full rounded-xl bg-slate-950 py-3 text-xs font-bold text-white transition hover:bg-[#1f5eff]"
-                >
-                  Add to cart
-                </button>
-              )}
+              <button
+                onClick={() => onAdd(product)}
+                className="mt-5 w-full rounded-xl bg-slate-950 py-3 text-xs font-bold text-white transition hover:bg-[#1f5eff]"
+              >
+                Add to cart
+              </button>
             </div>
           </article>
         ))}
